@@ -5,7 +5,6 @@
 //
 
 #import "APIClient.h"
-#import "UIApplication_TLCommon.h"
 
 @implementation APIClient
 
@@ -53,7 +52,6 @@
 	NSString *url = [NSString stringWithFormat:@"%@%@", [[self class] baseURL], endpoint];
     NSLog(@"[API] executing request with parameters: %@\n%@", url, self.httpParameters);
 
-    [[UIApplication sharedApplication] didStartNetworkRequest];
 	[[self class] postPath:endpoint withOptions:options object:nil];
 }
 
@@ -68,13 +66,11 @@
     NSLog(@"[API] executing request with parameters: %@\n%@", url, self.httpParameters);
     [[self class] setDefaultParams:self.httpParameters];
     
-    [[UIApplication sharedApplication] didStartNetworkRequest];
 	[[self class] getPath:endpoint withOptions:options object:nil];
 }
 
 - (void)restConnection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response object:(id)object 
 {
-    [[UIApplication sharedApplication] didStopNetworkRequest];
 	NSURL *url = [response URL];
 	NSString *urlStr = [url absoluteString];
 	NSLog(@"[API] Received response (code %i) URL: %@", [response statusCode], urlStr);
