@@ -10,9 +10,11 @@
 
 
 @interface ResponseController : UIViewController {
+    NSString *text;
 	IBOutlet UITextView *textView;
 }
 
+@property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) IBOutlet UITextView *textView;
 
 @end

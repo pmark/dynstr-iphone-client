@@ -8,13 +8,14 @@
 #import "DynstrClient.h"
 #import <MapKit/MapKit.h>
 
-@interface SampleClient : DynstrClient 
+@interface SampleClient : DynstrClient <CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
-- (void) create:(NSInteger)frequency udid:(NSString*)udid latitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude;
+- (void) createExampleDocument;
+- (void) fetchCustomResource;
 
 @end

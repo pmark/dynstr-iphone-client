@@ -32,26 +32,34 @@
 	return self;
 }
 
-- (void) create:(NSInteger)frequency udid:(NSString*)udid 
+- (void) createExampleDocument
 {
-    NSString *latitudeString = [NSString stringWithFormat:@"%f", 
-                                locationManager.location.coordinate.latitude];
-    NSString *longitudeString = [NSString stringWithFormat:@"%f", 
-                                 locationManager.location.coordinate.longitude];
-    NSString *frequencyString = [NSString stringWithFormat:@"%i", frequency];  
+    NSMutableDictionary *attribs = [NSMutableDictionary dictionary];
     
-    NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                    udid, @"udid",
-                                    frequencyString, @"frequency",
-                                    nil];
+    [attribs setValue:[[UIDevice currentDevice] uniqueIdentifier]
+               forKey:@"udid"];  
     
-    if (latitude != 0.0 && longitude != 0.0)
+    [attribs setValue:@"444"
+               forKey:@"frequency"];  
+    
+    CLLocationDegrees lat = locationManager.location.coordinate.latitude;
+    CLLocationDegrees lng = locationManager.location.coordinate.longitude;
+    
+    if (lat != 0.0 && lng != 0.0)
     {
-        [attribs setValue:latitudeString forKey:@"lat"];  
-        [attribs setValue:longitudeString forKey:@"lng"];  
+        [attribs setValue:[NSString stringWithFormat:@"%f", lat]
+                   forKey:@"lat"];  
+        
+        [attribs setValue:[NSString stringWithFormat:@"%f", lng]
+                   forKey:@"lng"];  
     }
 
-    [self create:@"samples" attribs:attribs];
+    [self create:@"examples" attribs:attribs];
+}
+
+- (void) fetchCustomResource
+{
+	[self executeGet:@"/samples/average.json" params:nil];    
 }
 
 @end

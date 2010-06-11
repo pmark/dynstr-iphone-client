@@ -25,6 +25,7 @@
 - (void) find:(NSString*)collection attribs:(NSDictionary*)attribs;
 - (void) update:(NSString*)collection identifier:(NSString*)identifier attribs:(NSDictionary*)attribs;
 - (void) destroy:(NSString*)collection identifier:(NSString*)identifier;
+- (void) executeGet:(NSString*)endpoint params:(NSDictionary*)params;
 
 @end
 

@@ -8,11 +8,23 @@
 
 #import "DynstrClient.h"
 
+#if 0
+
 #define API_BASE_URL @"http://dynstr.heroku.com"
 #define API_CREATE_ENDPOINT @"/apikey/collections/%@"
 #define API_FIND_ENDPOINT @"/apikey/collections/%@.json"
 #define API_UPDATE_ENDPOINT @"/apikey/collections/%@"
 #define API_DESTROY_ENDPOINT @"/apikey/collections/%@"
+
+#else
+
+#define API_BASE_URL @"http://omphone.heroku.com"
+#define API_CREATE_ENDPOINT @"/samples"
+#define API_FIND_ENDPOINT @"/samples/average.json"
+#define API_UPDATE_ENDPOINT @"/samples"
+#define API_DESTROY_ENDPOINT @"/samples"
+
+#endif
 
 @implementation DynstrClient
 
@@ -34,17 +46,17 @@
 	return self;
 }
 
-- (NSString*) initEndpointForCollection:(NSString*)collection
+- (void) initRequest
 {
     [[self class] setBaseURL:[NSURL URLWithString:API_BASE_URL]];
 	[[self class] setDelegate:self];
-	//NSString *url = [NSString stringWithFormat:@"%@%@", [[self class] baseURL], endpoint];    
-    return [NSString stringWithFormat:API_UPDATE_ENDPOINT, collection];
+    [[self class] setDefaultParams:[NSDictionary dictionary]];    
 }
 
 - (void) create:(NSString*)collection attribs:(NSDictionary*)attribs
 {
-    NSString *endpoint = [self initEndpointForCollection:collection];
+    [self initRequest];
+    NSString *endpoint = [NSString stringWithFormat:API_CREATE_ENDPOINT, collection];
 
     NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"application/x-www-form-urlencoded", @"Content-Type", nil];
@@ -54,14 +66,15 @@
                              headers, kHRClassAttributesHeadersKey,
                              attribs, kHRClassAttributesBodyKey,
                              nil];
-
-    [[self class] setDefaultParams:nil];    
+	
+    NSLog(@"[DynstrClient] %@%@", [[self class] baseURL], endpoint);    
 	[[self class] postPath:endpoint withOptions:options object:nil];
 }
 
 - (void) find:(NSString*)collection attribs:(NSDictionary*)attribs
 {
-    NSString *endpoint = [self initEndpointForCollection:collection];
+    [self initRequest];
+    NSString *endpoint = [NSString stringWithFormat:API_FIND_ENDPOINT, collection];
 
 	NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:HRDataFormatJSON] 
                                                         forKey:kHRClassAttributesFormatKey];
@@ -72,7 +85,8 @@
 
 - (void) update:(NSString*)collection identifier:(NSString*)identifier attribs:(NSDictionary*)attribs
 {
-    NSString *endpoint = [self initEndpointForCollection:collection];
+    [self initRequest];
+    NSString *endpoint = [NSString stringWithFormat:API_UPDATE_ENDPOINT, collection];
     
     NSDictionary *headers = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"application/x-www-form-urlencoded", @"Content-Type", nil];
@@ -83,18 +97,17 @@
                              attribs, kHRClassAttributesBodyKey,
                              nil];
     
-    [[self class] setDefaultParams:nil];    
 	[[self class] putPath:endpoint withOptions:options object:nil];
 }
 
 - (void) destroy:(NSString*)collection identifier:(NSString*)identifier
 {
-    NSString *endpoint = [self initEndpointForCollection:collection];
+    [self initRequest];
+    NSString *endpoint = [NSString stringWithFormat:API_DESTROY_ENDPOINT, collection];
     
 	NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:HRDataFormatJSON] 
                                                         forKey:kHRClassAttributesFormatKey];
     
-    [[self class] setDefaultParams:nil];
 	[[self class] deletePath:endpoint withOptions:options object:nil];
 }
 
@@ -138,6 +151,21 @@
 - (void)restConnection:(NSURLConnection*)connection didFailWithError:(NSError*)error object:(id)object 
 {
 	NSLog(@"[DynstrClient] Error getting connection: code: %i", [error code]);	
+}
+
+#pragma mark -
+
+- (void) executeGet:(NSString*)endpoint params:(NSDictionary*)params
+{
+    [self initRequest];
+    
+	NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:HRDataFormatJSON] 
+                                                        forKey:kHRClassAttributesFormatKey];
+    
+    if (params)
+        [[self class] setDefaultParams:params];    
+    
+	[[self class] getPath:endpoint withOptions:options object:nil];
 }
 
 @end

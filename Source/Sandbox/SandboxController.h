@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SampleClient.h"
 
-@interface SandboxController : UIViewController {
+@interface SandboxController : UIViewController <DynstrClientDelegate> {
     IBOutlet UILabel *apiKeyLabel;
     SampleClient *sampleClient;
 }
