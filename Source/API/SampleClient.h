@@ -5,13 +5,16 @@
 //  Copyright 2010 Spot Metrix. All rights reserved.
 //
 
-#import "APIClient.h"
+#import "DynstrClient.h"
 #import <MapKit/MapKit.h>
 
-@interface SampleClient : APIClient {
+@interface SampleClient : DynstrClient 
+{
+    CLLocationManager *locationManager;
 }
 
+@property (nonatomic, retain) CLLocationManager *locationManager;
+
 - (void) create:(NSInteger)frequency udid:(NSString*)udid latitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude;
-- (void) fetchAverage;
 
 @end

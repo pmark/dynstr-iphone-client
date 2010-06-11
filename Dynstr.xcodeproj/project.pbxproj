@@ -41,6 +41,12 @@
 		4D84444B11C142A8004A2D52 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84443011C142A8004A2D52 /* DDXMLElementAdditions.m */; };
 		4D84444C11C142A8004A2D52 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84443211C142A8004A2D52 /* DDXMLNode.m */; };
 		4D84444D11C142A8004A2D52 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84443511C142A8004A2D52 /* NSStringAdditions.m */; };
+		4D84447E11C1477B004A2D52 /* SandboxController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84447C11C1477B004A2D52 /* SandboxController.m */; };
+		4D84447F11C1477B004A2D52 /* SandboxController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D84447D11C1477B004A2D52 /* SandboxController.xib */; };
+		4D84448F11C14AB1004A2D52 /* ResponseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84448D11C14AB1004A2D52 /* ResponseController.m */; };
+		4D84449011C14AB1004A2D52 /* ResponseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D84448E11C14AB1004A2D52 /* ResponseController.xib */; };
+		4D84449E11C18D60004A2D52 /* DynstrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84449D11C18D60004A2D52 /* DynstrClient.m */; };
+		4D8444B011C1975C004A2D52 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8444AF11C1975C004A2D52 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +121,16 @@
 		4D84443311C142A8004A2D52 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		4D84443411C142A8004A2D52 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		4D84443511C142A8004A2D52 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		4D84447B11C1477B004A2D52 /* SandboxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandboxController.h; sourceTree = "<group>"; };
+		4D84447C11C1477B004A2D52 /* SandboxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandboxController.m; sourceTree = "<group>"; };
+		4D84447D11C1477B004A2D52 /* SandboxController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SandboxController.xib; sourceTree = "<group>"; };
+		4D84448211C148B5004A2D52 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4D84448C11C14AB1004A2D52 /* ResponseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseController.h; sourceTree = "<group>"; };
+		4D84448D11C14AB1004A2D52 /* ResponseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseController.m; sourceTree = "<group>"; };
+		4D84448E11C14AB1004A2D52 /* ResponseController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResponseController.xib; sourceTree = "<group>"; };
+		4D84449C11C18D60004A2D52 /* DynstrClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynstrClient.h; sourceTree = "<group>"; };
+		4D84449D11C18D60004A2D52 /* DynstrClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynstrClient.m; sourceTree = "<group>"; };
+		4D8444AF11C1975C004A2D52 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Dynstr-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Dynstr-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +142,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				4D8444B011C1975C004A2D52 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +176,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				4D8444AF11C1975C004A2D52 /* MapKit.framework */,
 			);
 			name = Dynstr;
 			sourceTree = "<group>";
@@ -197,6 +215,8 @@
 			children = (
 				4D8443EA11C1429B004A2D52 /* API */,
 				4D8443EF11C1429B004A2D52 /* AppDelegate */,
+				4D84448111C148A9004A2D52 /* Common */,
+				4D84447A11C14768004A2D52 /* Sandbox */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -208,6 +228,8 @@
 				4D8443EC11C1429B004A2D52 /* APIClient.m */,
 				4D8443ED11C1429B004A2D52 /* SampleClient.h */,
 				4D8443EE11C1429B004A2D52 /* SampleClient.m */,
+				4D84449C11C18D60004A2D52 /* DynstrClient.h */,
+				4D84449D11C18D60004A2D52 /* DynstrClient.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -355,6 +377,27 @@
 			path = KissXML;
 			sourceTree = "<group>";
 		};
+		4D84447A11C14768004A2D52 /* Sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				4D84448C11C14AB1004A2D52 /* ResponseController.h */,
+				4D84448D11C14AB1004A2D52 /* ResponseController.m */,
+				4D84448E11C14AB1004A2D52 /* ResponseController.xib */,
+				4D84447B11C1477B004A2D52 /* SandboxController.h */,
+				4D84447C11C1477B004A2D52 /* SandboxController.m */,
+				4D84447D11C1477B004A2D52 /* SandboxController.xib */,
+			);
+			path = Sandbox;
+			sourceTree = "<group>";
+		};
+		4D84448111C148A9004A2D52 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4D84448211C148B5004A2D52 /* Constants.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +443,8 @@
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* SecondView.xib in Resources */,
 				4D84444211C142A8004A2D52 /* CREDITS in Resources */,
+				4D84447F11C1477B004A2D52 /* SandboxController.xib in Resources */,
+				4D84449011C14AB1004A2D52 /* ResponseController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +483,9 @@
 				4D84444B11C142A8004A2D52 /* DDXMLElementAdditions.m in Sources */,
 				4D84444C11C142A8004A2D52 /* DDXMLNode.m in Sources */,
 				4D84444D11C142A8004A2D52 /* NSStringAdditions.m in Sources */,
+				4D84447E11C1477B004A2D52 /* SandboxController.m in Sources */,
+				4D84448F11C14AB1004A2D52 /* ResponseController.m in Sources */,
+				4D84449E11C18D60004A2D52 /* DynstrClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
